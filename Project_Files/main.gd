@@ -38,6 +38,8 @@ func new_game() -> void:
 	hud.show_message("Get Ready")
 	get_tree().call_group("mob","queque_free")
 	background_music.play()
+	pause_menu.hide()
+	Engine.time_scale = 1 
 
 
 func game_over() -> void:
@@ -89,4 +91,16 @@ func pauseMenu():
 	paused = !paused 
 
 
+func _on_pause_menu_bmusic() -> void:
+	if background_music.playing:
+		background_music.stop()
+	else:
+		background_music.play()
 
+func _on_pause_menu_bresume() -> void:
+	pause_menu.hide()
+	
+
+	await get_tree().create_timer(3.0).timeout 
+ 
+	Engine.time_scale = 1
