@@ -3,7 +3,7 @@ extends Node
 
 @export var mob_scene: Array[PackedScene]
 var score: int 
-
+var paused = false
 
 @onready var mob_timer: Timer = %MobTimer
 @onready var score_timer: Timer = %ScoreTimer
@@ -14,6 +14,7 @@ var score: int
 @onready var hud: CanvasLayer = %HUD
 @onready var game_over_music: AudioStreamPlayer = %GameOverMusic
 @onready var background_music: AudioStreamPlayer = %BackgroundMusic
+@onready var pause_menu: Control = %PauseMenu
 
 
 
@@ -25,7 +26,8 @@ var score: int
 
 
 func _process(_delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
 
 
 func new_game() -> void:
@@ -74,6 +76,17 @@ func _on_mob_timer_timeout() -> void:
 #	var velocity = Vector2(randf_range(150.0,250.0),0)
 #	mob.linear_velocity = velocity.rotated(direction)
 	
+
+
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1 
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0 
+		
+	paused = !paused 
 
 
 
