@@ -1,64 +1,82 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxejwk81bmim2"]
+[gd_scene load_steps=4 format=3 uid="uid://bxejwk81bmim2"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_y1np6"]
+[ext_resource type="Theme" uid="uid://cp4rq5q6h4aas" path="res://assets/Main_Theme.tres" id="2_dqvpq"]
+[ext_resource type="Texture2D" uid="uid://cajv8uan8l5qk" path="res://assets/art/Icons/Speaker_Icon.png" id="2_gv2ur"]
 
-[node name="PauseMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_y1np6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.956863, 0.87451, 0.768627, 1)
+color = Color(0.164706, 0.290196, 0.345098, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 56.0
-offset_top = -40.0
-offset_right = -56.0
-offset_bottom = 56.0
+offset_left = -143.0
+offset_top = -110.0
+offset_right = 135.0
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.06, 1.06)
+theme = ExtResource("2_dqvpq")
+theme_override_constants/separation = 42
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Pause Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "PAUSA"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="Resume_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit Game"
+theme = ExtResource("2_dqvpq")
+theme_override_font_sizes/font_size = 20
+text = "Resume Game"
 
 [node name="Restart_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_dqvpq")
+theme_override_font_sizes/font_size = 20
 text = "Restart Game "
 
-[node name="Resume_Button" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Resume Game"
+theme = ExtResource("2_dqvpq")
+theme_override_font_sizes/font_size = 20
+text = "Quit Game"
 
 [node name="ControlMusic_Button" type="Button" parent="."]
-layout_mode = 1
-offset_left = 23.0
-offset_top = 47.0
-offset_right = 176.0
-offset_bottom = 96.0
-text = "STOP MUSIC"
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 32.0
+offset_right = 400.0
+offset_bottom = 552.0
+grow_horizontal = 0
+scale = Vector2(0.155, 0.155)
+theme = ExtResource("2_dqvpq")
+icon = ExtResource("2_gv2ur")
+icon_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Resume_Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ControlMusic_Button" to="." method="_on_control_music_button_pressed"]

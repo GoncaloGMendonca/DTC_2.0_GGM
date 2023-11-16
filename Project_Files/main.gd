@@ -14,7 +14,8 @@ var paused = false
 @onready var hud: CanvasLayer = %HUD
 @onready var game_over_music: AudioStreamPlayer = %GameOverMusic
 @onready var background_music: AudioStreamPlayer = %BackgroundMusic
-@onready var pause_menu: Control = %PauseMenu
+@onready var pause_menu: CanvasLayer = %PauseMenu
+@onready var resume_count_down_music: AudioStreamPlayer = %Resume_CountDownMusic
 
 
 
@@ -36,10 +37,11 @@ func new_game() -> void:
 	start_timer.start()
 	hud.update_score(score)
 	hud.show_message("Get Ready")
-	get_tree().call_group("mob","queque_free")
+	get_tree().call_group("mob","queue_free")
 	background_music.play()
 	pause_menu.hide()
-	Engine.time_scale = 1 
+#	Engine.time_scale = 1
+	get_tree().paused = false 
 
 
 func game_over() -> void:
@@ -82,13 +84,17 @@ func _on_mob_timer_timeout() -> void:
 
 func pauseMenu():
 	if paused:
+		print("TIME 1")
 		pause_menu.hide()
-		Engine.time_scale = 1 
+#		Engine.time_scale = 1 
+		get_tree().paused = false
 	else:
+		print("TIME 0")
 		pause_menu.show()
-		Engine.time_scale = 0 
+#		Engine.time_scale = 0 
+		get_tree().paused = true
 		
-	paused = !paused 
+#	paused = !paused 
 
 
 func _on_pause_menu_bmusic() -> void:
@@ -99,8 +105,12 @@ func _on_pause_menu_bmusic() -> void:
 
 func _on_pause_menu_bresume() -> void:
 	pause_menu.hide()
+	print("RESUME")
 	
-
-	await get_tree().create_timer(3.0).timeout 
- 
-	Engine.time_scale = 1
+	resume_count_down_music.play()
+	var wait_time := randf_range(2.9,3.0)
+	await get_tree().create_timer(wait_time).timeout
+	print("PASSOU")
+	get_tree().paused = false
+	
+	

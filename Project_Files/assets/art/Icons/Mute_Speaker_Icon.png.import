@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xjtojjaq4g08"
-path="res://.godot/imported/playerGrey_up1.png-eef40fc788b0fd158b0b22d9bd57fbbd.ctex"
+uid="uid://bc8cu35ond86b"
+path="res://.godot/imported/Mute_Speaker_Icon.png-65738af9397de7c7609700cd0a58d22e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dodge_the_creeps_2d_assets/art/playerGrey_up1.png"
-dest_files=["res://.godot/imported/playerGrey_up1.png-eef40fc788b0fd158b0b22d9bd57fbbd.ctex"]
+source_file="res://assets/art/Icons/Mute_Speaker_Icon.png"
+dest_files=["res://.godot/imported/Mute_Speaker_Icon.png-65738af9397de7c7609700cd0a58d22e.ctex"]
 
 [params]
 

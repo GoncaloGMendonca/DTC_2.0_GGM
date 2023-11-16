@@ -4,4 +4,5 @@
 [ext_resource type="Script" path="res://mob_4.gd" id="2_k617u"]
 
 [node name="Mob4" instance=ExtResource("1_1penl")]
+modulate = Color(0, 0.831373, 0.384314, 1)
 script = ExtResource("2_k617u")

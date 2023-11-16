@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cye0s46cc8x5p"]
+[gd_scene load_steps=7 format=3 uid="uid://cye0s46cc8x5p"]
 
-[ext_resource type="FontFile" uid="uid://bm8m8ncdi2ggg" path="res://dodge_the_creeps_2d_assets/fonts/Xolonium-Regular.ttf" id="1_laov4"]
+[ext_resource type="FontFile" uid="uid://bm8m8ncdi2ggg" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_laov4"]
 [ext_resource type="Script" path="res://hud.gd" id="1_r1qpa"]
+[ext_resource type="Theme" uid="uid://cp4rq5q6h4aas" path="res://assets/Main_Theme.tres" id="2_ly07f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lcvcu"]
 font = ExtResource("1_laov4")
@@ -22,6 +23,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 81.0
 grow_horizontal = 2
+theme = ExtResource("2_ly07f")
 text = "0
 "
 label_settings = SubResource("LabelSettings_lcvcu")
@@ -37,6 +39,7 @@ offset_top = -40.5
 offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ly07f")
 text = "Dodge The 
 Creeps!!"
 label_settings = SubResource("LabelSettings_lcvcu")
@@ -50,14 +53,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -104.0
-offset_right = 19.0
+offset_left = -117.0
+offset_top = -142.0
+offset_right = 104.0
 offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_ly07f")
 theme_override_fonts/font = ExtResource("1_laov4")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 54
 shortcut = SubResource("Shortcut_2gqla")
 text = "Start"
 
