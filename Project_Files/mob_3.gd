@@ -1,19 +1,39 @@
 extends "res://mob.gd"
 
 var alpha_step: float = 0.005
-var fade_direction: int = 1  # 1 for fading in, -1 for fading out
+var fade_direction: int = 1
+var wait_time := 1.0
+var alpha := 0.0
+var fade_duration = 1.0  # Duration of each fade (in seconds)
+var wait_duration = 1.0  # Duration of wait time between fades (in seconds)
+var fade_timer = 0.0    # Timer to control fading
 
 
 func _ready() -> void:
 	animated_sprite_2d.play("fly")
 
-func _process(delta: float) -> void:
-# Update alpha value
-	self.modulate.a += alpha_step * fade_direction
 
-	# Check if the alpha value is out of bounds
-	if self.modulate.a <= 0.0 or self.modulate.a >= 1.0:
-		# Invert direction when close to bounds
-		fade_direction *= -1
-		# Clamp alpha value to avoid issues with floating-point precision
-		self.modulate.a = clamp(self.modulate.a, 0.0, 1.0)
+
+func _process(delta):
+	pass
+
+
+
+
+
+#
+#func spawn(spawn_pos:Vector2, spawn_rot: float) -> void:
+#	super(spawn_pos,spawn_rot)
+
+#	for i in range(15):
+#		await get_tree().create_timer(wait_time).timeout
+#		print("DIMINUI")
+#		alpha += 0.1
+#		self.modulate.a += alpha_step
+#
+#		await get_tree().create_timer(wait_time).timeout
+#		print("RAPIDO")
+#		alpha -= 0.1
+#		self.modulate.a += alpha_step
+#
+#		animated_sprite_2d.play("fly")
