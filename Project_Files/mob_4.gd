@@ -4,15 +4,38 @@ extends "res://mob.gd"
 func _ready() -> void:
 	animated_sprite_2d.play("fly")
 
-#func _process(delta: float) -> void:
-#
-#	var wait_time := 3
-#	await get_tree().create_timer(wait_time).timeout
-#
-#	linear_velocity = (Vector2.ZERO)
-#
-#	await get_tree().create_timer(wait_time).timeout
-#
-#
+func _process(delta: float) -> void:
+	pass
 
+func spawn(spawn_pos:Vector2, spawn_rot: float) -> void:
+	super(spawn_pos,spawn_rot)
+	linear_velocity = linear_velocity * 2
 	
+	
+	var wait_time := 1.0
+
+	for i in range(15):
+		await get_tree().create_timer(wait_time).timeout
+		print("LENTO")
+		freeze = true
+		linear_velocity = linear_velocity / 15
+		animated_sprite_2d.stop()
+
+		await get_tree().create_timer(wait_time).timeout
+		print("RAPIDO")
+		freeze = false
+		linear_velocity = linear_velocity * 15
+		animated_sprite_2d.play("fly")
+	
+
+
+
+func resume_movement():
+	
+	animated_sprite_2d.play("fly")
+
+
+func _on_timer_timeout() -> void:
+	print("TIME UP")
+	
+	animated_sprite_2d.stop()

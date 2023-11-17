@@ -50,6 +50,7 @@ func game_over() -> void:
 	hud.show_game_over()
 	background_music.stop()
 	game_over_music.play()
+	pause_menu.hide()
 
 
 
@@ -108,7 +109,7 @@ func _on_pause_menu_bresume() -> void:
 	print("RESUME")
 	
 	resume_count_down_music.play()
-	var wait_time := randf_range(2.9,3.0)
+	var wait_time := 3.0
 	await get_tree().create_timer(wait_time).timeout
 	print("PASSOU")
 	get_tree().paused = false
