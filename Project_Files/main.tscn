@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cf6ynff73k666"]
+[gd_scene load_steps=15 format=3 uid="uid://cf6ynff73k666"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_teuwr"]
 [ext_resource type="PackedScene" uid="uid://dxiabom1fry4a" path="res://player.tscn" id="1_v71kt"]
+[ext_resource type="PackedScene" uid="uid://hnilseqmro2f" path="res://mob.tscn" id="2_pkd7r"]
+[ext_resource type="PackedScene" uid="uid://iqgg37akujup" path="res://mob_2.tscn" id="3_duhur"]
 [ext_resource type="PackedScene" uid="uid://cvy47wcuthmcf" path="res://mob_4.tscn" id="3_tsr44"]
 [ext_resource type="PackedScene" uid="uid://c1tcfnli7nq87" path="res://mob_3.tscn" id="4_c0qk0"]
 [ext_resource type="PackedScene" uid="uid://cye0s46cc8x5p" path="res://hud.tscn" id="4_eq05k"]
@@ -27,7 +29,7 @@ point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_teuwr")
-mob_scene = Array[PackedScene]([ExtResource("4_c0qk0"), ExtResource("3_tsr44")])
+mob_scene = Array[PackedScene]([ExtResource("2_pkd7r"), ExtResource("3_duhur"), ExtResource("4_c0qk0"), ExtResource("3_tsr44")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
