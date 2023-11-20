@@ -40,7 +40,6 @@ func new_game() -> void:
 	get_tree().call_group("mob","queue_free")
 	background_music.play()
 	pause_menu.hide()
-#	Engine.time_scale = 1
 	get_tree().paused = false 
 
 
@@ -87,15 +86,12 @@ func pauseMenu():
 	if paused:
 		print("TIME 1")
 		pause_menu.hide()
-#		Engine.time_scale = 1 
 		get_tree().paused = false
 	else:
 		print("TIME 0")
 		pause_menu.show()
-#		Engine.time_scale = 0 
 		get_tree().paused = true
 		
-#	paused = !paused 
 
 
 func _on_pause_menu_bmusic() -> void:
@@ -113,5 +109,3 @@ func _on_pause_menu_bresume() -> void:
 	await get_tree().create_timer(wait_time).timeout
 	print("PASSOU")
 	get_tree().paused = false
-	
-	

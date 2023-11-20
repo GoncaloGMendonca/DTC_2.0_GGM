@@ -6,8 +6,7 @@ signal bresume
 
 
 @onready var main = $"../"
-@onready var button: Button = $Button
-@onready var control_music_button: Button = $ControlMusic_Button
+@onready var control_music_button: Button = %ControlMusic_Button
 
 
 

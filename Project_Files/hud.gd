@@ -2,12 +2,10 @@ extends CanvasLayer
 
 signal start_game
 
-
 @onready var message_timer: Timer = %MessageTimer
 @onready var message: Label = %Message
 @onready var start_button: Button = %StartButton
 @onready var score_label: Label = %ScoreLabel
-
 
 
 func show_message(text:String) -> void:
@@ -29,7 +27,6 @@ func show_game_over():
 
 func update_score(score: int) -> void:  
 	score_label.text = str(score)
-
 
 
 
