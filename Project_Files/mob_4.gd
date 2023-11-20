@@ -4,6 +4,8 @@ extends "res://mob.gd"
 func _ready() -> void:
 	animated_sprite_2d.play("fly")
 
+func _process(delta: float) -> void:
+	pass
 
 func spawn(spawn_pos:Vector2, spawn_rot: float) -> void:
 	super(spawn_pos,spawn_rot)
@@ -24,3 +26,16 @@ func spawn(spawn_pos:Vector2, spawn_rot: float) -> void:
 		freeze = false
 		linear_velocity = linear_velocity * 15
 		animated_sprite_2d.play("fly")
+	
+
+
+
+func resume_movement():
+	
+	animated_sprite_2d.play("fly")
+
+
+func _on_timer_timeout() -> void:
+	print("TIME UP")
+	
+	animated_sprite_2d.stop()
