@@ -45,4 +45,4 @@ func start(pos:Vector2) -> void:
 	position = pos
 	show()
 	collision_shape_2d.disabled = false
-	
+

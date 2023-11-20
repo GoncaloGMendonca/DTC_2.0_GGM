@@ -1,25 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7fh8th338bkk"]
 
 [ext_resource type="Script" path="res://power_up_base.gd" id="1_lcv2x"]
-[ext_resource type="Texture2D" uid="uid://dv6hknmm6imeq" path="res://assets/art/Icons/Erased_Creeps.png" id="2_ycqpp"]
+[ext_resource type="Texture2D" uid="uid://cv64ycogsb4jg" path="res://assets/art/Icons/Power_up_Base.png" id="2_adb71"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrte4"]
-size = Vector2(98, 102)
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0a8j"]
+radius = 45.0444
 
-[node name="powerUp_base" type="Area2D"]
+[node name="PowerUp_base" type="Area2D"]
 script = ExtResource("1_lcv2x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 511.0
+offset_bottom = 513.0
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("2_adb71")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(44, 46)
-shape = SubResource("RectangleShape2D_vrte4")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 512.0
-offset_bottom = 512.0
-scale = Vector2(0.175, 0.175)
-texture = ExtResource("2_ycqpp")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+shape = SubResource("CircleShape2D_n0a8j")
 
 [connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

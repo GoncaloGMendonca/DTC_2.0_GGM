@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1tcfnli7nq87" path="res://mob_3.tscn" id="4_c0qk0"]
 [ext_resource type="PackedScene" uid="uid://cye0s46cc8x5p" path="res://hud.tscn" id="4_eq05k"]
 [ext_resource type="AudioStream" uid="uid://cfvn2wxhhw5qr" path="res://assets/SFX_Music/DTK_GameOver_SFX.wav" id="7_gf1d4"]
-[ext_resource type="PackedScene" uid="uid://b7fh8th338bkk" path="res://power_up_base.tscn" id="7_vmy47"]
+[ext_resource type="PackedScene" uid="uid://l2drlav3wnp2" path="res://power_up_clear_enemy.tscn" id="7_jrqqu"]
 [ext_resource type="PackedScene" uid="uid://bxejwk81bmim2" path="res://pause_menu.tscn" id="7_yav6b"]
 [ext_resource type="AudioStream" uid="uid://2bbih2hbwec4" path="res://assets/SFX_Music/DTK_Background_Music.ogg" id="8_38n0k"]
 [ext_resource type="AudioStream" uid="uid://yuw0weotcff" path="res://assets/SFX_Music/countdown_Sound.wav" id="8_lo7sn"]
@@ -31,6 +31,7 @@ point_count = 5
 [node name="Main" type="Node"]
 script = ExtResource("1_teuwr")
 mob_scene = Array[PackedScene]([ExtResource("2_pkd7r"), ExtResource("3_duhur"), ExtResource("4_c0qk0"), ExtResource("3_tsr44")])
+powerup_scene = Array[PackedScene]([ExtResource("7_jrqqu")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -39,6 +40,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_3o8t1")
+
+[node name="PowerUp_Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 20.0
 
 [node name="MobTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -51,9 +56,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
-
-[node name="PowerUp_Timer" type="Timer" parent="."]
-wait_time = 20.0
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -68,9 +70,6 @@ curve = SubResource("Curve2D_3ci0y")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 unique_name_in_owner = true
 position = Vector2(0, -8)
-
-[node name="powerUp_base" parent="." instance=ExtResource("7_vmy47")]
-position = Vector2(177, 108)
 
 [node name="HUD" parent="." instance=ExtResource("4_eq05k")]
 unique_name_in_owner = true
@@ -94,12 +93,10 @@ volume_db = -12.905
 unique_name_in_owner = true
 stream = ExtResource("8_lo7sn")
 
-[node name="PowerUp_Spawner" type="Node" parent="."]
-
+[connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
-[connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="bmusic" from="PauseMenu" to="." method="_on_pause_menu_bmusic"]

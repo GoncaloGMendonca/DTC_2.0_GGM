@@ -2,8 +2,13 @@ extends Node
 
 
 @export var mob_scene: Array[PackedScene]
+@export var powerup_scene: Array[PackedScene]
+
+
+
 var score: int 
 var paused = false
+
 
 @onready var mob_timer: Timer = %MobTimer
 @onready var score_timer: Timer = %ScoreTimer
@@ -16,8 +21,7 @@ var paused = false
 @onready var background_music: AudioStreamPlayer = %BackgroundMusic
 @onready var pause_menu: CanvasLayer = %PauseMenu
 @onready var resume_count_down_music: AudioStreamPlayer = %Resume_CountDownMusic
-
-
+@onready var power_up_timer: Timer = %PowerUp_Timer
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -56,6 +60,7 @@ func game_over() -> void:
 func _on_start_timer_timeout() -> void:
 	mob_timer.start()
 	score_timer.start()
+	power_up_timer.start()
 
 
 func _on_score_timer_timeout() -> void:
@@ -73,6 +78,9 @@ func _on_mob_timer_timeout() -> void:
 	direction += randf_range(-PI / 4, PI / 4)
 	
 	mob.spawn(mob_spawn_location.position, direction)
+	
+	
+	
 	
 #	mob.position = mob_spawn_location.position
 #	mob.rotation = direction
@@ -95,10 +103,14 @@ func pauseMenu():
 
 
 func _on_pause_menu_bmusic() -> void:
-	if background_music.playing:
-		background_music.stop()
-	else:
-		background_music.play()
+	background_music.stop()
+	
+#	if background_music.playing:
+#		pass
+#		print("STOP MUSICA")
+#	else:
+#		background_music.play()
+#		print("PLAY MUSICA")
 
 func _on_pause_menu_bresume() -> void:
 	pause_menu.hide()
@@ -109,3 +121,12 @@ func _on_pause_menu_bresume() -> void:
 	await get_tree().create_timer(wait_time).timeout
 	print("PASSOU")
 	get_tree().paused = false
+
+
+func _on_power_up_timer_timeout() -> void:
+	print("NASCEU")
+	var powerup_instance: Node = powerup_scene.pick_random().instantiate()
+	# Set the power-up's position within the game area
+	powerup_instance.position = Vector2(randf_range(0, 480), randf_range(0, 720))
+	# Add the power-up to the scene
+	add_child(powerup_instance)
