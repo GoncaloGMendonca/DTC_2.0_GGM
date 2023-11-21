@@ -1,11 +1,8 @@
 extends "res://mob.gd"
 
 
-
-
 func _ready() -> void:
 	animated_sprite_2d.play("swim")
-
 
 func spawn(spawn_pos:Vector2, spawn_rot: float) -> void:
 	super(spawn_pos,spawn_rot)

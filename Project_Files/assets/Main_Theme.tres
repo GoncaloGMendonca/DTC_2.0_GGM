@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cp4rq5q6h4aas"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cp4rq5q6h4aas"]
 
 [ext_resource type="FontFile" uid="uid://bm8m8ncdi2ggg" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_abiaq"]
+[ext_resource type="Texture2D" uid="uid://b2rwg6cv0prk3" path="res://assets/art/Icons/double-point_Icon.png" id="2_ejs3n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7c0wv"]
 content_margin_left = 4.0
@@ -19,7 +20,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
+bg_color = Color(1, 1, 1, 0)
 draw_center = false
 border_width_left = 2
 border_width_top = 2
@@ -37,6 +38,7 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4u17"]
 bg_color = Color(0.514225, 0.611234, 0.657637, 1)
+border_color = Color(0.8, 0.8, 0.8, 0.545098)
 corner_radius_top_left = 115
 corner_radius_bottom_right = 115
 corner_detail = 11
@@ -48,6 +50,7 @@ shadow_offset = Vector2(0.82, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owwub"]
 bg_color = Color(0.529412, 0.635294, 0.411765, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 115
 corner_radius_bottom_right = 115
 shadow_color = Color(0, 0, 0, 1)
@@ -59,9 +62,9 @@ shadow_offset = Vector2(0.82, 0)
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.94902, 0)
+Button/colors/font_hover_color = Color(0.858824, 0.858824, 0.858824, 1)
+Button/colors/font_hover_pressed_color = Color(0.988235, 0.988235, 0.988235, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
@@ -69,12 +72,13 @@ Button/colors/icon_focus_color = Color(1, 1, 1, 1)
 Button/colors/icon_hover_color = Color(1, 1, 1, 1)
 Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/icon_normal_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 0.913725, 0.945098, 1)
 Button/constants/h_separation = 2
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_abiaq")
+Button/icons/yy = ExtResource("2_ejs3n")
 Button/styles/disabled = SubResource("StyleBoxFlat_7c0wv")
 Button/styles/focus = SubResource("StyleBoxFlat_7wn74")
 Button/styles/hover = SubResource("StyleBoxFlat_n4u17")

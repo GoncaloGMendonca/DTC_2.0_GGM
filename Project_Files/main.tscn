@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cf6ynff73k666"]
+[gd_scene load_steps=17 format=3 uid="uid://cf6ynff73k666"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_teuwr"]
 [ext_resource type="PackedScene" uid="uid://dxiabom1fry4a" path="res://player.tscn" id="1_v71kt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cvy47wcuthmcf" path="res://mob_4.tscn" id="3_tsr44"]
 [ext_resource type="PackedScene" uid="uid://c1tcfnli7nq87" path="res://mob_3.tscn" id="4_c0qk0"]
 [ext_resource type="PackedScene" uid="uid://cye0s46cc8x5p" path="res://hud.tscn" id="4_eq05k"]
+[ext_resource type="PackedScene" uid="uid://dhnkn610tuh6p" path="res://power_up_double_points.tscn" id="7_bf8uf"]
 [ext_resource type="AudioStream" uid="uid://cfvn2wxhhw5qr" path="res://assets/SFX_Music/DTK_GameOver_SFX.wav" id="7_gf1d4"]
 [ext_resource type="PackedScene" uid="uid://l2drlav3wnp2" path="res://power_up_clear_enemy.tscn" id="7_jrqqu"]
 [ext_resource type="PackedScene" uid="uid://bxejwk81bmim2" path="res://pause_menu.tscn" id="7_yav6b"]
@@ -31,7 +32,7 @@ point_count = 5
 [node name="Main" type="Node"]
 script = ExtResource("1_teuwr")
 mob_scene = Array[PackedScene]([ExtResource("2_pkd7r"), ExtResource("3_duhur"), ExtResource("4_c0qk0"), ExtResource("3_tsr44")])
-powerup_scene = Array[PackedScene]([ExtResource("7_jrqqu")])
+powerup_scene = Array[PackedScene]([ExtResource("7_jrqqu"), ExtResource("7_bf8uf")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15

@@ -8,6 +8,7 @@ extends Node
 
 var score: int 
 var paused = false
+var Ismusicplaying = true
 
 
 @onready var mob_timer: Timer = %MobTimer
@@ -103,14 +104,12 @@ func pauseMenu():
 
 
 func _on_pause_menu_bmusic() -> void:
-	background_music.stop()
-	
-#	if background_music.playing:
-#		pass
-#		print("STOP MUSICA")
-#	else:
-#		background_music.play()
-#		print("PLAY MUSICA")
+	if background_music.stream_paused:
+		background_music.stop()
+		print("STOP MUSICA")
+	else:
+		background_music.play()
+		print("PLAY MUSICA")
 
 func _on_pause_menu_bresume() -> void:
 	pause_menu.hide()
@@ -125,8 +124,17 @@ func _on_pause_menu_bresume() -> void:
 
 func _on_power_up_timer_timeout() -> void:
 	print("NASCEU")
-	var powerup_instance: Node = powerup_scene.pick_random().instantiate()
-	# Set the power-up's position within the game area
-	powerup_instance.position = Vector2(randf_range(0, 480), randf_range(0, 720))
+	var powerup: Node2D = powerup_scene.pick_random().instantiate()
+	# Set the power-up's position within the game area REVER 
+	powerup.position = Vector2(randf_range(0, 480), randf_range(0, 720))
 	# Add the power-up to the scene
-	add_child(powerup_instance)
+	add_child(powerup)
+
+
+
+
+#	print("PONTOS DOBRO")
+#	score_timer.stop()
+#	score += 20000
+#	hud.update_score(score)
+	

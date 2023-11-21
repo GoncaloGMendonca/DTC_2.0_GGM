@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_y1np6"]
 [ext_resource type="Theme" uid="uid://cp4rq5q6h4aas" path="res://assets/Main_Theme.tres" id="2_dqvpq"]
-[ext_resource type="Texture2D" uid="uid://cajv8uan8l5qk" path="res://assets/art/Icons/Speaker_Icon.png" id="2_gv2ur"]
+[ext_resource type="Texture2D" uid="uid://bc8cu35ond86b" path="res://assets/art/Icons/Mute_Speaker_Icon.png" id="3_3o4ot"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_y1np6")
@@ -69,7 +69,7 @@ offset_bottom = 552.0
 grow_horizontal = 0
 scale = Vector2(0.155, 0.155)
 theme = ExtResource("2_dqvpq")
-icon = ExtResource("2_gv2ur")
+icon = ExtResource("3_3o4ot")
 icon_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Resume_Button" to="." method="_on_resume_button_pressed"]

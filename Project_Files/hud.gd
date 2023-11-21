@@ -24,15 +24,11 @@ func show_game_over():
 	await get_tree().create_timer(1.0).timeout
 	start_button.show()
 
-
 func update_score(score: int) -> void:  
 	score_label.text = str(score)
 
-
-
 func _on_message_timer_timeout() -> void:
 	message.hide()
-
 
 func _on_start_button_pressed() -> void:
 	start_button.hide()

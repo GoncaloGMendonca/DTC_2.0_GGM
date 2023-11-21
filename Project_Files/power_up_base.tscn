@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_n0a8j"]
 radius = 45.0444
 
-[node name="PowerUp_base" type="Area2D"]
+[node name="PowerUp_base" type="Area2D" groups=["powerup"]]
 script = ExtResource("1_lcv2x")
 
 [node name="TextureRect" type="TextureRect" parent="."]
