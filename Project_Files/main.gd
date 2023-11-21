@@ -45,7 +45,7 @@ func new_game() -> void:
 	background_music.play()
 	pause_menu.hide()
 	get_tree().paused = false 
-
+	
 
 func game_over() -> void:
 	mob_timer.stop()
