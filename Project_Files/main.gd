@@ -5,10 +5,8 @@ extends Node
 @export var powerup_scene: Array[PackedScene]
 
 
-
 var score: int 
 var paused = false
-var Ismusicplaying = true
 
 
 @onready var mob_timer: Timer = %MobTimer
@@ -43,6 +41,7 @@ func new_game() -> void:
 	hud.update_score(score)
 	hud.show_message("Get Ready")
 	get_tree().call_group("mob","queue_free")
+	get_tree().call_group("powerup","queue_free")
 	background_music.play()
 	pause_menu.hide()
 	get_tree().paused = false 
@@ -55,6 +54,7 @@ func game_over() -> void:
 	background_music.stop()
 	game_over_music.play()
 	pause_menu.hide()
+	power_up_timer.stop()
 
 
 
@@ -79,9 +79,6 @@ func _on_mob_timer_timeout() -> void:
 	direction += randf_range(-PI / 4, PI / 4)
 	
 	mob.spawn(mob_spawn_location.position, direction)
-	
-	
-	
 	
 #	mob.position = mob_spawn_location.position
 #	mob.rotation = direction

@@ -15,13 +15,14 @@
 [ext_resource type="AudioStream" uid="uid://yuw0weotcff" path="res://assets/SFX_Music/countdown_Sound.wav" id="8_lo7sn"]
 
 [sub_resource type="Gradient" id="Gradient_ec4r3"]
-colors = PackedColorArray(0.511719, 0.609375, 0.65625, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.582192, 1)
+colors = PackedColorArray(0.511719, 0.609375, 0.65625, 1, 0.262745, 0.309804, 0.333333, 1, 0.147546, 0.178626, 0.194151, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3o8t1"]
 gradient = SubResource("Gradient_ec4r3")
 fill = 1
-fill_from = Vector2(0.504274, 0.512821)
-fill_to = Vector2(0.931624, 0.0512821)
+fill_from = Vector2(0.504274, 0.487179)
+fill_to = Vector2(0.952991, 0.034188)
 
 [sub_resource type="Curve2D" id="Curve2D_3ci0y"]
 _data = {

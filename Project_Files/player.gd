@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.flip_v = velocity.y > 0 
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	hide()
 	hit.emit()
 	collision_shape_2d.set_deferred("disabled", true)
