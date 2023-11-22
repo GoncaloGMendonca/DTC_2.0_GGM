@@ -25,7 +25,7 @@ func show_game_over():
 	start_button.show()
 
 func update_score(score: int) -> void:  
-	score_label.text = str(score)
+	score_label.text = str(ScoreManager.score)
 
 func _on_message_timer_timeout() -> void:
 	message.hide()

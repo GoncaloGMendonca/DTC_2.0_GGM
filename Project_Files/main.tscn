@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cf6ynff73k666"]
+[gd_scene load_steps=17 format=3 uid="uid://cf6ynff73k666"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_teuwr"]
 [ext_resource type="PackedScene" uid="uid://dxiabom1fry4a" path="res://player.tscn" id="1_v71kt"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bxejwk81bmim2" path="res://pause_menu.tscn" id="7_yav6b"]
 [ext_resource type="AudioStream" uid="uid://2bbih2hbwec4" path="res://assets/SFX_Music/DTK_Background_Music.ogg" id="8_38n0k"]
 [ext_resource type="AudioStream" uid="uid://yuw0weotcff" path="res://assets/SFX_Music/countdown_Sound.wav" id="8_lo7sn"]
-[ext_resource type="PackedScene" uid="uid://b7fh8th338bkk" path="res://power_up_base.tscn" id="14_ji7sb"]
 
 [sub_resource type="Gradient" id="Gradient_ec4r3"]
 offsets = PackedFloat32Array(0, 0.582192, 1)
@@ -34,7 +33,7 @@ point_count = 5
 [node name="Main" type="Node"]
 script = ExtResource("1_teuwr")
 mob_scene = Array[PackedScene]([ExtResource("2_pkd7r"), ExtResource("3_duhur"), ExtResource("4_c0qk0"), ExtResource("3_tsr44")])
-powerup_scene = Array[PackedScene]([ExtResource("7_jrqqu"), ExtResource("7_bf8uf")])
+powerup_scene = Array[PackedScene]([ExtResource("7_bf8uf"), ExtResource("7_jrqqu")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -95,8 +94,6 @@ volume_db = -12.905
 [node name="Resume_CountDownMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_lo7sn")
-
-[node name="PowerUp_base" parent="." instance=ExtResource("14_ji7sb")]
 
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

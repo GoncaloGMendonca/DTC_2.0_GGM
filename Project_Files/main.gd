@@ -5,7 +5,6 @@ extends Node
 @export var powerup_scene: Array[PackedScene]
 
 
-var score: int 
 var paused = false
 
 
@@ -23,10 +22,6 @@ var paused = false
 @onready var power_up_timer: Timer = %PowerUp_Timer
 
 
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	new_game() 
-
 
 
 func _process(_delta: float) -> void:
@@ -35,16 +30,16 @@ func _process(_delta: float) -> void:
 
 
 func new_game() -> void:
-	score = 0
+	ScoreManager.score = 0
 	player.start(start_position.position)
 	start_timer.start()
-	hud.update_score(score)
+	hud.update_score(ScoreManager.score)
 	hud.show_message("Get Ready")
 	get_tree().call_group("mob","queue_free")
 	get_tree().call_group("powerup","queue_free")
 	background_music.play()
 	pause_menu.hide()
-	get_tree().paused = false 
+	get_tree().paused = false
 	
 
 func game_over() -> void:
@@ -55,6 +50,7 @@ func game_over() -> void:
 	game_over_music.play()
 	pause_menu.hide()
 	power_up_timer.stop()
+	ScoreManager.powerDouble = false
 
 
 
@@ -65,9 +61,14 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_score_timer_timeout() -> void:
-	score += 1
-	hud.update_score(score)
-	
+	if ScoreManager.powerDouble:
+		ScoreManager.score *= 2
+		print("DOBRO ON")
+		hud.update_score(ScoreManager.score)
+	else:
+		ScoreManager.score += 1
+		hud.update_score(ScoreManager.score)
+		print("DOBRO OFF")
 
 
 func _on_mob_timer_timeout() -> void:
@@ -80,13 +81,6 @@ func _on_mob_timer_timeout() -> void:
 	
 	mob.spawn(mob_spawn_location.position, direction)
 	
-#	mob.position = mob_spawn_location.position
-#	mob.rotation = direction
-#
-#	var velocity = Vector2(randf_range(150.0,250.0),0)
-#	mob.linear_velocity = velocity.rotated(direction)
-	
-
 
 func pauseMenu():
 	if paused:
@@ -122,16 +116,7 @@ func _on_pause_menu_bresume() -> void:
 func _on_power_up_timer_timeout() -> void:
 	print("NASCEU")
 	var powerup: Node2D = powerup_scene.pick_random().instantiate()
-	# Set the power-up's position within the game area REVER 
-	powerup.position = Vector2(randf_range(0, 480), randf_range(0, 720))
-	# Add the power-up to the scene
+	# Sistema de spawn dos power ups, abaixo do tamanho do ecrã para não nascer escondido
+	powerup.position = Vector2(randf_range(50, 430), randf_range(20, 700))
+	# Adiciona os power ups
 	add_child(powerup)
-
-
-
-
-#	print("PONTOS DOBRO")
-#	score_timer.stop()
-#	score += 20000
-#	hud.update_score(score)
-	
