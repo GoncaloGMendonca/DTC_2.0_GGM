@@ -63,12 +63,10 @@ func _on_start_timer_timeout() -> void:
 func _on_score_timer_timeout() -> void:
 	if ScoreManager.powerDouble:
 		ScoreManager.score *= 2
-		print("DOBRO ON")
 		hud.update_score(ScoreManager.score)
 	else:
 		ScoreManager.score += 1
 		hud.update_score(ScoreManager.score)
-		print("DOBRO OFF")
 
 
 func _on_mob_timer_timeout() -> void:
@@ -84,11 +82,9 @@ func _on_mob_timer_timeout() -> void:
 
 func pauseMenu():
 	if paused:
-		print("TIME 1")
 		pause_menu.hide()
 		get_tree().paused = false
 	else:
-		print("TIME 0")
 		pause_menu.show()
 		get_tree().paused = true
 		
@@ -97,24 +93,18 @@ func pauseMenu():
 func _on_pause_menu_bmusic() -> void:
 	if background_music.stream_paused:
 		background_music.stop()
-		print("STOP MUSICA")
 	else:
 		background_music.play()
-		print("PLAY MUSICA")
 
 func _on_pause_menu_bresume() -> void:
 	pause_menu.hide()
-	print("RESUME")
-	
 	resume_count_down_music.play()
 	var wait_time := 3.0
 	await get_tree().create_timer(wait_time).timeout
-	print("PASSOU")
 	get_tree().paused = false
 
 
 func _on_power_up_timer_timeout() -> void:
-	print("NASCEU")
 	var powerup: Node2D = powerup_scene.pick_random().instantiate()
 	# Sistema de spawn dos power ups, abaixo do tamanho do ecrã para não nascer escondido
 	powerup.position = Vector2(randf_range(50, 430), randf_range(20, 700))

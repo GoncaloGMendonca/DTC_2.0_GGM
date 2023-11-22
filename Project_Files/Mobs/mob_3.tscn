@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1tcfnli7nq87"]
 
-[ext_resource type="PackedScene" uid="uid://hnilseqmro2f" path="res://mob.tscn" id="1_jk8ju"]
-[ext_resource type="Script" path="res://mob_3.gd" id="2_phajt"]
-[ext_resource type="Script" path="res://AnimationPlayer.gd" id="3_cta4t"]
+[ext_resource type="PackedScene" uid="uid://hnilseqmro2f" path="res://Mobs/mob.tscn" id="1_jk8ju"]
+[ext_resource type="Script" path="res://Mobs/mob_3.gd" id="2_phajt"]
+[ext_resource type="Script" path="res://Mobs/Mob3_AnimationPlayer.gd" id="3_cta4t"]
 
 [sub_resource type="Animation" id="Animation_0xbb8"]
 resource_name = "fade"

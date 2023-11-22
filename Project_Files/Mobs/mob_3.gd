@@ -1,4 +1,4 @@
-extends "res://mob.gd"
+extends "res://Mobs/mob.gd"
 
 
 func _ready() -> void:

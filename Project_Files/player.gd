@@ -13,7 +13,6 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size 
 	hide()
 
-
 func _process(delta: float) -> void:
 	var velocity: Vector2 = Input.get_vector("move_left", "move_right","move_up","move_down") 
 	
@@ -34,12 +33,10 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.animation = "up"
 		animated_sprite_2d.flip_v = velocity.y > 0 
 
-
 func _on_body_entered(_body: Node2D) -> void:
 	hide()
 	hit.emit()
 	collision_shape_2d.set_deferred("disabled", true)
-
 
 func start(pos:Vector2) -> void:
 	position = pos

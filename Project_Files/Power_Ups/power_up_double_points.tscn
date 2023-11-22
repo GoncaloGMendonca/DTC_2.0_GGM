@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhnkn610tuh6p"]
 
-[ext_resource type="PackedScene" uid="uid://b7fh8th338bkk" path="res://power_up_base.tscn" id="1_882lp"]
-[ext_resource type="Script" path="res://power_up_double_points.gd" id="2_fqxqb"]
+[ext_resource type="PackedScene" uid="uid://b7fh8th338bkk" path="res://Power_Ups/power_up_base.tscn" id="1_882lp"]
+[ext_resource type="Script" path="res://Power_Ups/power_up_double_points.gd" id="2_fqxqb"]
 [ext_resource type="Texture2D" uid="uid://b2rwg6cv0prk3" path="res://assets/art/Icons/double-point_Icon.png" id="3_wpxm2"]
 
 [node name="PowerUp_DoublePoints" instance=ExtResource("1_882lp")]
