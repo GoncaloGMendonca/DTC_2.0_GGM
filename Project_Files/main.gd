@@ -22,12 +22,9 @@ var paused = false
 @onready var power_up_timer: Timer = %PowerUp_Timer
 
 
-
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-
 
 func new_game() -> void:
 	ScoreManager.score = 0
@@ -40,7 +37,6 @@ func new_game() -> void:
 	background_music.play()
 	pause_menu.hide()
 	get_tree().paused = false
-	
 
 func game_over() -> void:
 	mob_timer.stop()
@@ -52,14 +48,12 @@ func game_over() -> void:
 	power_up_timer.stop()
 	ScoreManager.power_Double = false
 
-
-
 func _on_start_timer_timeout() -> void:
 	mob_timer.start()
 	score_timer.start()
 	power_up_timer.start()
 
-
+#func que muda o score, verifica se o doble points esta ativado ou não
 func _on_score_timer_timeout() -> void:
 	if ScoreManager.power_Double:
 		ScoreManager.score *= 2
@@ -67,7 +61,6 @@ func _on_score_timer_timeout() -> void:
 	else:
 		ScoreManager.score += 1
 		hud.update_score(ScoreManager.score)
-
 
 func _on_mob_timer_timeout() -> void:
 	var mob: Node2D = mob_scene.pick_random().instantiate()
@@ -89,20 +82,19 @@ func pauseMenu():
 		get_tree().paused = true
 		
 
-
 func _on_pause_menu_bmusic() -> void:
 	if background_music.stream_paused:
 		background_music.stop()
 	else:
 		background_music.play()
 
+#func do butão resume game que espera 5sec antes de recomeçar o jogo  
 func _on_pause_menu_bresume() -> void:
 	pause_menu.hide()
 	resume_count_down_music.play()
 	var wait_time := 3.0
 	await get_tree().create_timer(wait_time).timeout
 	get_tree().paused = false
-
 
 func _on_power_up_timer_timeout() -> void:
 	var powerup: Node2D = powerup_scene.pick_random().instantiate()
