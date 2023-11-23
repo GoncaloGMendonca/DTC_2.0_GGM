@@ -50,7 +50,7 @@ func game_over() -> void:
 	game_over_music.play()
 	pause_menu.hide()
 	power_up_timer.stop()
-	ScoreManager.powerDouble = false
+	ScoreManager.power_Double = false
 
 
 
@@ -61,7 +61,7 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_score_timer_timeout() -> void:
-	if ScoreManager.powerDouble:
+	if ScoreManager.power_Double:
 		ScoreManager.score *= 2
 		hud.update_score(ScoreManager.score)
 	else:

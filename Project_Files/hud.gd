@@ -3,6 +3,7 @@ extends CanvasLayer
 
 signal start_game
 
+
 @onready var message_timer: Timer = %MessageTimer
 @onready var message: Label = %Message
 @onready var start_button: Button = %StartButton

@@ -1,14 +1,13 @@
 extends Node
 
 var score: int = 0
-var powerDouble = false
-
+var power_Double = false
 
 
 func _timer_powerDouble() -> void:
-	if ScoreManager.powerDouble:
+	if ScoreManager.power_Double:
 		var wait_time := 10.0
 		await get_tree().create_timer(wait_time).timeout
-		ScoreManager.powerDouble = false
+		ScoreManager.power_Double = false
 
 

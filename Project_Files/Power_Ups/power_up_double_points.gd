@@ -2,8 +2,8 @@ extends "res://Power_Ups/power_up_base.gd"
 
 
 func powerup_activated() -> void:
-	ScoreManager.powerDouble = true
-	ScoreManager._timer_powerDouble()
+	ScoreManager.power_Double = true
+	ScoreManager._timer_power_Double()
 	queue_free()
 
 
